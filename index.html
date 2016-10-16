@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>#2016/10/15#</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    h1, h2, h3, h4{
+      font-family: "Microsoft Yahei";
+      font-weight: bold;
+    }
+    p{
+      font-size: 17px;
+    }
+    p span{
+      display: block;
+      text-indent: 2em;
+    }
+    .defined-btn{
+      display: block !important;
+      width: 100%;
+      font-size: 2.4em;
+      font-family: "Microsoft Yahei";
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div class="panel panel-primary">
+      <div class="panel-heading">
+          <div class="panel-title">
+            <h2>等额本金</h2>
+          </div>
+        </div>
+        <div class="panel-body">
+
+          <p class="text-info">
+            月供组成：本金 + 未还本金的利息；
+          </p>
+          <p class="text-info">
+            每月应还本金算法：贷款总额 / 贷款期数；<br>
+            未还本金利息算法：详见案例分析
+          </p>
+
+          <p class="text-warning">
+            案例分析： 陈某向银行贷了 120 万元，年限为 10年[120个月]，年利率为央行基准利率[4.9%]；
+            <br><br>
+            月利率：  0.049 / 12 = 0.00408333 <br><br>
+            本金：
+            <span>那么他每月还的本金就应为： 120w / 120月  =  1w/月</span>
+            利息：
+            <span>第一个月就应是：120w * 0.00408333 = 	4899.96；</span>
+            <span>第二个月就应是：( 120w - 1w ) * 0.00408333  = 4859.17</span>
+            <span>第三个月就应是：( 120w - 2w ) * 0.00408333  = 4818.33</span>
+            <span>………………</span>
+            <span>第120个月就应是： ( 120w - 119w ) * 0.00408333 = 40.84</span>
+          </p>
+
+          <p class="text-danger">
+            总结：每月还的本金是固定的，并不会变化；但是每月的利息是根据最新剩余本金来计算，因此，利息每个月呈递减的趋势发展，所以整体月供 也呈递减趋势。
+          </p>
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <h2>等额本息</h2>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="panel-title">
+            <h4>我平时的算法</h4>
+          </div>
+
+          <p class="text-danger">案例同上</p>
+
+          <p class="text-warning">
+            <span>
+               每月应归还本金：120w / 120月 = 1w/月；
+            </span>
+            <span>
+               每月应缴利息： 120w * 0.00408333 = 4899.96；
+            </span><br>
+            <span class="text-danger">
+              所以，月供：1w + 4899.96 = 14899.96元
+            </span>
+          </p>
+          <p class="text-danger">
+            备注：因为本金逐月递增， 利息逐月递减，所以整体月供没有任何变化。
+            但是，本金 和 利息 的具体占比，我不了解是怎么得来的。
+          </p><br>
+          <br>
+          <div class="jumbotron" style="display: none;">
+            <p class="text-danger" style="font-weight: bold">
+              <span>
+                月供：不变
+              </span>
+              <span>
+                但是，利息, 逐月递减；本金，逐月递增
+              </span>
+            </p>
+          </div>
+
+
+          <button class="btn btn-danger btn-lg defined-btn">
+            Click Me !
+          </button>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+
+<script>
+  $('.defined-btn').toggle(function () {
+    $('.jumbotron').show();
+  }, function () {
+    $('.jumbotron').hide();
+  })
+</script>
+
+
+</body>
+</html>
